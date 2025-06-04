@@ -17,12 +17,12 @@ To download the pipeline_smFISH : git clone https://github.com/fish-quant/pipeli
 
         c) pip install apifish
 
-        d) python -m pip install cellpose[gui]
+        d) python -m pip install cellpose[gui]==3.1.0
 
         e) Other libraries to install in pipeline_fish (using pip install x)   where x = ipython, napari, nd2reader, ipykernel, readlif, ipywidgets
 
         f) add the kernel to jupyter :
-        python -m ipykernel install --user --name base_env --display-name "base_env"
+        python -m ipykernel install --user --name base_env_apifish --display-name "base_env_apifish"
 
         g) create other environments (for instance ufish_env): 
             conda activate base
