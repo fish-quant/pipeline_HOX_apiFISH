@@ -19,7 +19,8 @@ To download the pipeline_smFISH : git clone https://github.com/fish-quant/pipeli
 
         d) python -m pip install cellpose[gui]==3.1.0
 
-        e) Other libraries to install in pipeline_fish (using pip install x)   where x = ipython, napari, nd2reader, ipykernel, readlif, ipywidgets
+        e) Other libraries to install in pipeline_fish (using pip install x)
+        where x = ipython, napari, nd2reader, ipykernel, readlif, ipywidgets
 
         f) add the kernel to jupyter :
         python -m ipykernel install --user --name base_env_apifish --display-name "base_env_apifish"
@@ -28,10 +29,15 @@ To download the pipeline_smFISH : git clone https://github.com/fish-quant/pipeli
             conda activate base
             conda env create -f ufish_env.yml
             
-            Optional: install ipykernel (conda install ipykernel) , add new kernel to your conda environment:   python -m ipykernel install --user --name environment_x --display-name "environment_x"
-            Then you can test your api directly in the native environment environment_x, and then write a wrapper to do cross-environment function call.
+            Optional: install ipykernel (conda install ipykernel), 
+            add new kernel to your conda environment:   
+            python -m ipykernel install --user --name environment_x --display-name "environment_x"
+            
+            Then you can test your api directly in the native environment environment_x, 
+            and then write a wrapper to do cross-environment function call.
 
-        h) test if cude is available, otherwise install it: python -c "import torch; print('CUDA available:', torch.cuda.is_available()); print('CUDA version:', torch.version.cuda)"
+        h) test if cuda is available, otherwise install it: python -c "import torch;
+        print('CUDA available:', torch.cuda.is_available()); print('CUDA version:', torch.version.cuda)"
  
 ## Authors
 Jacques Bourg @ Muller lab, institut pasteur. 04/06/25
