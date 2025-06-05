@@ -42,6 +42,6 @@ To download the pipeline_smFISH : git clone https://github.com/fish-quant/pipeli
         print('CUDA available:', torch.cuda.is_available()); print('CUDA version:', torch.version.cuda)"
  
 ## Authors
-Jacques Bourg @ Muller lab, institut pasteur. 04/06/25
+Jacques Bourg @ Florian Muller lab. Institut Pasteur. 04/06/25
  
  
