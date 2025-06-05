@@ -25,7 +25,7 @@ To download the pipeline_smFISH : git clone https://github.com/fish-quant/pipeli
         f) add the kernel to jupyter :
         python -m ipykernel install --user --name base_env_apifish --display-name "base_env_apifish"
 
-        g) create other environments (for instance ufish_env): 
+        2) Create second environment (ufish_env): 
             conda activate base
             conda env create -f ufish_env.yml
             
@@ -36,7 +36,9 @@ To download the pipeline_smFISH : git clone https://github.com/fish-quant/pipeli
             Then you can test your api directly in the native environment environment_x, 
             and then write a wrapper to do cross-environment function call.
 
-        h) test if cuda is available, otherwise install it: python -c "import torch;
+        3) Test if cuda is available otherwise install it.
+        
+        python -c "import torch;
         print('CUDA available:', torch.cuda.is_available()); print('CUDA version:', torch.version.cuda)"
  
 ## Authors
