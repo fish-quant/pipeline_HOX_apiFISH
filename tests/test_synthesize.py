@@ -14,7 +14,7 @@ def test_colocalisation_analysis():
     x  = np.array([[1, 1],[5, 3]])
     y  = np.array([[1, 1],[1, 10], [10, 10]])
     st = Synthesis()
-    list_gene1_only, list_gene2_only, list_gene1_gene2 = st.colocalisation_analysis(x,y)
+    list_gene1_only, list_gene2_only, list_gene1_gene2 = st.colocalization_analysis(x,y)
     
     assert np.array_equal(list_gene1_only[0], np.array([5, 3])) 
     assert np.array_equal(list_gene2_only[0], np.array([1, 10]))
