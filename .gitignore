@@ -12,6 +12,8 @@ Thumbs.db
 *.png
 # PyCharm stuff
 .idea/
+.csv
+.json
 
 # VS code
 /.vscode/
