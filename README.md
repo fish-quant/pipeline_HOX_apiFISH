@@ -4,30 +4,31 @@
 
 ## Getting started
 
-To download the pipeline_smFISH : git clone https://github.com/fish-quant/pipeline_HOX_apiFISH.git
+        To download the pipeline_smFISH : git clone https://github.com/fish-quant/pipeline_HOX_apiFISH.git
 
 
 ## Install environments
 
         1) Base environment: 
 
-        a) conda create --name base_env_apifish python=3.10.16
+        a) conda create --name base_env_apifish python=3.11
 
         b) conda activate base_env_apifish
 
-        c) pip install apifish
-
-        d) python -m pip install cellpose[gui]==3.1.0
-
-        e) Other libraries to install in pipeline_fish (using pip install x)
-        where x = ipython, napari, nd2reader, ipykernel, readlif, ipywidgets
-
-        f) add the kernel to jupyter :
+        c) pip install -r requirements_base_env_apifish.txt    
+        
+        d) add the kernel to jupyter :
         python -m ipykernel install --user --name base_env_apifish --display-name "base_env_apifish"
 
         2) Create second environment (ufish_env): 
-            conda activate base
-            conda env create -f ufish_env.yml
+        
+            a) conda activate base
+            
+            b) conda create --name ufish_env python=3.11
+            
+            c) conda install pip
+            
+            d) pip install -r requirements_ufish.txt
             
             Optional: install ipykernel (conda install ipykernel), 
             add new kernel to your conda environment:   
