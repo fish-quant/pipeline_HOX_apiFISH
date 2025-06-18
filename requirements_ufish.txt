@@ -20,3 +20,5 @@ ipywidgets
 nd2reader
 readlif
 pyqt5
+ufish
+notebook
