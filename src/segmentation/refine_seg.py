@@ -312,7 +312,7 @@ class Segmentation:
             df_sum_intensity.loc[df_sum_intensity['in_mask'], 'sum_intensity'] = df_sum_intensity[df_sum_intensity['in_mask']].apply(lambda row: self.summed_intensity_in_circle(im_rna,
                                                                                                                                                         int(row['Y']),
                                                                                                                                                         int(row['X']),
-                                                                                                                                                        radius= row['spot_width'],
+                                                                                                                                                        radius= row['spot_width']/2,
                                                                                                                                                         z= int(row['Z']),
                                                                                                                                                         ),
                                                                                                                                                         axis=1,
@@ -321,12 +321,13 @@ class Segmentation:
             df_sum_intensity.loc[df_sum_intensity['in_mask'], 'sum_intensity'] = df_sum_intensity[df_sum_intensity['in_mask']].apply(lambda row: self.summed_intensity_in_circle(im_rna,
                                                                                                                                                         int(row['Y']),
                                                                                                                                                         int(row['X']),
-                                                                                                                                                        radius= row['spot_width'],
+                                                                                                                                                        radius= row['spot_width']/2,
                                                                                                                                                         ),
                                                                                                                                                         axis=1,
                                                                                                                     )
         
         return df_sum_intensity
+    
     
     
     def summed_intensity_in_circle(self, image, center_y, center_x, radius, z=None):
@@ -355,9 +356,10 @@ class Segmentation:
             height, width = image_shape
             y, x = np.ogrid[:height, :width]
             distance = np.sqrt(
-                (x - center_x) ** 2 + (y - center_y) ** 2
+                (x - center_x +.5) ** 2 + (y - center_y +.5) ** 2
             )  # Calculate the distance from each pixel to the center
-            mask = distance <= np.ceil(radius)
+            mask = distance <= radius
+                       
             y_coords, x_coords = np.where(mask)
             if len(y_coords):
                 return np.sum(image[y_coords, x_coords])
@@ -378,16 +380,15 @@ class Segmentation:
             depth, height, width = image_shape
             y, x = np.ogrid[:height, :width]
             distance = np.sqrt(
-                (x - center_x) ** 2 + (y - center_y) ** 2
+                (x - center_x + .5) ** 2 + (y - center_y + 0.5) ** 2
             )  # Calculate the distance from each pixel to the center
-            mask = distance <= np.ceil(radius)
+            mask = distance <=  radius
             y_coords, x_coords = np.where(mask)
             if len(y_coords):
                 return np.sum(image[z, y_coords, x_coords])
             else:
                 return np.nan   
-    
-    
+     
     def count_spots_in_masks_df(self, masks: np.ndarray, df_stat_cells: pd.DataFrame, df_spots: pd.DataFrame):
         """
         
